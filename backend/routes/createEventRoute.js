@@ -2,7 +2,23 @@ const express = require("express");
 const router = express.Router();
 
 router.post('/event', async (req, res) => {
-    
+    try
+    {
+        const hostedBy = req.body.hostedBy;
+        const eventName = req.body.eventName;
+        const eventTime = req.body.eventTime;
+        const venue = req.body.venue;
+        const description = req.body.description;
+
+        await saveEvent({hostedBy, eventName, eventTime, venue, description});
+
+        return res.json({message : "Event created successfully"});
+    }
+    catch (error)
+    {
+        console.log("Error while creating event", error);
+        return res.json({message : "Some error occurred"});
+    }
 });
 
 module.exports = router;
