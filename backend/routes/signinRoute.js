@@ -38,7 +38,7 @@ router.post('/signin', async (req, res) => {
     catch (error)
     {
         console.log("Error while signing in", error);
-        return res.json({message : "Some error occurred!"});
+        return res.json({message : "Some error occurred"});
     }
 });
 
