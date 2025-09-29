@@ -1,4 +1,5 @@
 const express = require("express");
+const { saveEvent } = require("../repository/eventsRepository");
 const router = express.Router();
 
 router.post('/event', async (req, res) => {

@@ -1,4 +1,5 @@
 const express = require("express");
+const { getEvents } = require("../repository/eventsRepository");
 const router = express.Router();
 
 router.get('/events', async (req, res) => {
