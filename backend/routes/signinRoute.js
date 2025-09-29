@@ -1,5 +1,6 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
+const { comparePassword } = require("../service/passwordHashing");
 const router = express.Router();
 
 router.post('/signin', async (req, res) => {
@@ -46,7 +47,7 @@ router.post('/signin', async (req, res) => {
         }
 
         // compare password
-        const match = await comparePassword(password, user.password);
+        const match = await comparePassword(hashedPassword, user.password);
         const email = user.email;
 
         // if match not found, means wrong password

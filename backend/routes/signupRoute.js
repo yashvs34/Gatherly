@@ -1,4 +1,5 @@
 const express = require("express");
+const { hashPassword } = require("../service/passwordHashing");
 const router = express.Router();
 
 router.post('/signup', async (req, res) => {
