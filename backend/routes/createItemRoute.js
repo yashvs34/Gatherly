@@ -1,8 +1,9 @@
 const express = require("express");
 const { saveItem } = require("../repository/itemsRepository");
+const itemValidator = require("../middlewares/itemValidator");
 const router = express.Router();
 
-router.post('/item', async (req, res) => {
+router.post('/item', itemValidator, async (req, res) => {
     try
     {
         const itemName = req.body.itemName;
