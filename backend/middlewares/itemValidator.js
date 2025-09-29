@@ -4,7 +4,7 @@ const itemSchema = zod.object({
     itemName : zod.string(),
     foundEvent : zod.string(),
     foundVenue : zod.date(),
-    contact : zod.venue(),
+    contact : zod.string(),
     isFound : zod.boolean()
 });
 

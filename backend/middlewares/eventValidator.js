@@ -4,7 +4,7 @@ const eventSchema = zod.object({
     hostedBy : zod.string(),
     eventName : zod.string(),
     eventTime : zod.date(),
-    venue : zod.venue(),
+    venue : zod.string(),
     description : zod.string()
 });
 
