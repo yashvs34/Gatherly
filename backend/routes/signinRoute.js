@@ -1,6 +1,7 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const { comparePassword } = require("../service/passwordHashing");
+const { findUser } = require("../repository/userRepository");
 const router = express.Router();
 
 router.post('/signin', async (req, res) => {
