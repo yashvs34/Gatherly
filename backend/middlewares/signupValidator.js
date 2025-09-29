@@ -1,4 +1,5 @@
 const zod = require("zod");
+const { findUser } = require("../repository/userRepository");
 
 const signupSchema = zod.object({
     firstName : zod.string(),
@@ -8,7 +9,7 @@ const signupSchema = zod.object({
     password : zod.string()
 });
 
-function signupValidator (req, res, next)
+async function signupValidator (req, res, next)
 {
     try
     {
@@ -25,7 +26,20 @@ function signupValidator (req, res, next)
             return res.json({message : "Invalid inputs"});
         }
 
-        next();
+        // find if userName or email is already taken
+        const user1 = await findUser(email);
+        const user2 = await findUser(userName);
+
+        if (!user1 || !user2)
+        {
+            next();
+        }
+        else if (user1)
+        {
+            return res.json({message : "Email already taken"});
+        }
+
+        return res.json({message : "UserName already taken"});
     }
     catch (error)
     {

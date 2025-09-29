@@ -1,7 +1,7 @@
 const zod = require("zod");
 
 const signinSchema = zod.object({
-    userName : zod.string(),
+    identifier : zod.string(),
     password : zod.string()
 });
 
@@ -16,7 +16,15 @@ function signinValidator (req, res, next)
 
         if (!result.success)
         {
-            res.json({message : "Invalid inputs"});
+            if (req.body.token)
+            {
+                next();
+                return;
+            }
+            else
+            {
+                return res.json({message : "Invalid inputs"});
+            }
         }
 
         next();

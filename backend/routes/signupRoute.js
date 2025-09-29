@@ -13,8 +13,8 @@ router.post('/signup', signupValidator, async (req, res) => {
         const email = req.body.email;
         const temp = req.body.password;
 
-        const user1 = await findUser({email});
-        const user2 = await findUser({userName});
+        const user1 = await findUser(email);
+        const user2 = await findUser(userName);
 
         // if email or username is already present
         if (user1)

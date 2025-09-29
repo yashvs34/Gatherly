@@ -1,10 +1,15 @@
 const User = require("../models/users");
 
-async function findUser ({identifier})
+async function findUser (identifier)
 {
     try
     {
-        return await User.findOne({identifier});
+        return await User.findOne({
+            $or : [
+                {email : identifier},
+                {userName : identifier}
+            ]
+        });
     }
     catch (error)
     {

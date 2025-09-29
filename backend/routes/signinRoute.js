@@ -15,7 +15,7 @@ router.post('/signin', signinValidator, async (req, res) => {
 
             const {email, password} = await jwt.verify(token, process.env.JWT_SECRET);
 
-            const user = await findUser({email});
+            const user = await findUser(email);
 
             // if no user with given email
             if (!user)
@@ -40,7 +40,7 @@ router.post('/signin', signinValidator, async (req, res) => {
         const password = req.body.password;
 
         // find user in database
-        const user = await findUser({identifier});
+        const user = await findUser(identifier);
 
         // if user is not present in database
         if (!user)
@@ -49,7 +49,7 @@ router.post('/signin', signinValidator, async (req, res) => {
         }
 
         // compare password
-        const match = await comparePassword(hashedPassword, user.password);
+        const match = await comparePassword(password, user.password);
         const email = user.email;
 
         // if match not found, means wrong password
