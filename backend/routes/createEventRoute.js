@@ -1,8 +1,9 @@
 const express = require("express");
 const { saveEvent } = require("../repository/eventsRepository");
+const eventValidator = require("../middlewares/eventValidator");
 const router = express.Router();
 
-router.post('/event', async (req, res) => {
+router.post('/event', eventValidator, async (req, res) => {
     try
     {
         const hostedBy = req.body.hostedBy;

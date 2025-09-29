@@ -23,7 +23,7 @@ function signinValidator (req, res, next)
     }
     catch (error)
     {
-        console.log("Error while signing in", error);
+        console.log("Error while validating signin input", error);
         return res.json({message : "Some error occurred"});
     }
 }

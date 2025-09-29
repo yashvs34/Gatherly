@@ -26,7 +26,7 @@ function signupValidator (req, res, next)
     }
     catch (error)
     {
-        console.log("Error while signing up", error);
+        console.log("Error while validating signup input", error);
         return res.json({message : "Some error occurred"});
     }
 }
