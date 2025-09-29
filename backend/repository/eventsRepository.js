@@ -24,11 +24,11 @@ async function findEvent(event)
     }
 }
 
-async function saveEvent ({hostedBy, eventName, eventTime, venue, description})
+async function saveEvent ({postedBy, eventName, eventTime, venue, description})
 {
     try
     {
-        const newEvent = new Event({hostedBy, eventName, eventTime, venue, description});
+        const newEvent = new Event({postedBy, eventName, eventTime, venue, description});
 
         return await newEvent.save();
     }
