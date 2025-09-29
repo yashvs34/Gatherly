@@ -2,6 +2,7 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const { comparePassword } = require("../service/passwordHashing");
 const { findUser } = require("../repository/userRepository");
+const signinValidator = require("../middlewares/signinValidator");
 const router = express.Router();
 
 router.post('/signin', signinValidator, async (req, res) => {
