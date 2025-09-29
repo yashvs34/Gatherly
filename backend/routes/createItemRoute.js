@@ -20,7 +20,9 @@ router.post('/item', itemValidator, async (req, res) => {
             return res.json({message : "No such event found"});
         }
 
-        await saveItem({itemName, foundEvent, foundVenue, contact});
+        const isFound = false;
+
+        await saveItem({itemName, foundEvent, foundVenue, contact, isFound});
 
         return res.json({message : "Item created successfully"});
     }

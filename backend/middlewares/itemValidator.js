@@ -3,7 +3,7 @@ const zod = require("zod");
 const itemSchema = zod.object({
     itemName : zod.string(),
     foundEvent : zod.string(),
-    foundVenue : zod.date(),
+    foundVenue : zod.string(),
     contact : zod.string(),
     isFound : zod.boolean()
 });
@@ -16,7 +16,7 @@ function itemValidator (req, res, next)
         const foundEvent = req.body.foundEvent;
         const foundVenue = req.body.foundVenue;
         const contact = req.body.contact;
-        const isFound = req.body.isFound;
+        const isFound = false;
 
         const result = itemSchema.safeParse({itemName, foundEvent, foundVenue, contact, isFound});
 

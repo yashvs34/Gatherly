@@ -10,7 +10,7 @@ const itemSchema = new mongoose.Schema({
         required : true
     },
     foundVenue : {
-        type : Date,
+        type : String,
         required : true
     },
     contact : {

@@ -16,7 +16,7 @@ async function findEvent(event)
 {
     try
     {
-        return await findOne({event});
+        return await Event.find({event});
     }
     catch (error)
     {
