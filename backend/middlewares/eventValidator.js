@@ -8,7 +8,7 @@ const eventSchema = zod.object({
     description : zod.string()
 });
 
-function eventValidator ()
+function eventValidator (req, res, next)
 {
     try
     {

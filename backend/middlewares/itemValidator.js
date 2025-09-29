@@ -8,7 +8,7 @@ const itemSchema = zod.object({
     isFound : zod.boolean()
 });
 
-function itemValidator ()
+function itemValidator (req, res, next)
 {
     try
     {
