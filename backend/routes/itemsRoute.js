@@ -1,4 +1,5 @@
 const express = require("express");
+const { getItems } = require("../repository/itemsRepository");
 const router = express.Router();
 
 router.get('/items', async (req, res) => {
