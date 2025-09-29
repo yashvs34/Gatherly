@@ -1,7 +1,10 @@
 const zod = require("zod");
 
 const signupSchema = zod.object({
+    firstName : zod.string(),
+    lastName : zod.string(),
     userName : zod.string(),
+    email : zod.string().email(),
     password : zod.string()
 });
 
@@ -19,7 +22,7 @@ function signupValidator (req, res, next)
 
         if (!result.success)
         {
-            res.json({message : "Invalid inputs"});
+            return res.json({message : "Invalid inputs"});
         }
 
         next();
