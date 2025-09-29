@@ -12,6 +12,18 @@ async function getEvents()
     }
 }
 
+async function findEvent(event)
+{
+    try
+    {
+        return await findOne({event});
+    }
+    catch (error)
+    {
+        console.log("Error while finding events", error);
+    }
+}
+
 async function saveEvent ({hostedBy, eventName, eventTime, venue, description})
 {
     try
@@ -26,4 +38,4 @@ async function saveEvent ({hostedBy, eventName, eventTime, venue, description})
     }
 }
 
-module.exports = {getEvents, saveEvent};
+module.exports = {getEvents, findEvent, saveEvent};
