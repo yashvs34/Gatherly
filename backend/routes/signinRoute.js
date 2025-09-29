@@ -4,7 +4,7 @@ const { comparePassword } = require("../service/passwordHashing");
 const { findUser } = require("../repository/userRepository");
 const router = express.Router();
 
-router.post('/signin', async (req, res) => {
+router.post('/signin', signinValidator, async (req, res) => {
     try
     {
         // if user has send token
