@@ -4,7 +4,7 @@ async function getEvents()
 {
     try 
     {
-        return await Event.find({}); 
+        return await Event.find({});
     }
     catch (error)
     {

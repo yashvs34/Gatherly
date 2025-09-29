@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const eventSchema = new mongoose.Schema({
-    hostedBy : {
+    postedBy : {
         type : String,
         required : true
     },
